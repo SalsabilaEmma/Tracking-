@@ -1,0 +1,68 @@
+
+:root {
+    --color-primary: grey;
+    /* --logo: url(https://s.cdpn.io/profiles/user/1490182/80.jpg?1538125571); */
+}
+
+.map {
+    height: 100vh;
+    min-height: 350px;
+    position: relative;
+}
+
+.map .logo {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 62.5 100'%3E%3Cpath d='M53.3 9.2A31.26 31.26 0 009.1 53.4s22.1 21.7 22.1 46.7c0-25 22.1-46.7 22.1-46.7 12.3-12.2 12.3-32 0-44.2zM31.2'/%3E%3C/svg%3E%0A");
+    background-color: var(--color-primary);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.map .logo::before {
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: var(--logo);
+    background-color: var(--color-primary);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--color-primary);
+}
+
+.leaflet-popup-content {
+    padding: 0.5rem;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    min-width: 200px;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.leaflet-popup-content h3 {
+    margin: 0 0 0.5rem;
+}
+
+.leaflet-popup-content p {
+    margin: 0;
+}
+
+.leaflet-popup-content .links {
+    margin-top: 0.5rem;
+}
+
+.leaflet-popup-content a {
+    color: var(--color-primary);
+    padding-right: 1rem;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    padding: 0.8rem;
+    z-index: 1;
+}

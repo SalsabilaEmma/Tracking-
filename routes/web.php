@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EmployeesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/try', function () {
     return view('tracking.index');
 });
 
-// Route::GET('/try', [Controller::class, 'try'])->name('try');
+Route::resource('/posts', App\Http\Controllers\CrudController::class);
+
+// Route::resource('category', CategoryController::class, ['except' => [
+//     'create', 'update','show'
+// ]]);
+// Route::get('/index', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category', [CategoryController::class, 'data'])->name('crud.category');
+// Route::get('/category-store', [CategoryController::class, 'store'])->name('category.store');
+
+// Route::get('/','EmployeesController@index');
+Route::get('/', [EmployeesController::class, 'index']);
+Route::get('/employees/getEmployees/', [EmployeesController::class, 'getEmployees'])->name('employees.getEmployees');
+// Route::get('/employees/getEmployees/','EmployeesController@getEmployees')->name('employees.getEmployees');

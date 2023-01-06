@@ -5,16 +5,21 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Tracking</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/modules/fontawesome/css/all.min.css">
 
     <!-- CSS Libraries -->
-  <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/modules/datatables/datatables.min.css">
-  <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/modules/datatables/datatables.min.css">
+    <link rel="stylesheet"
+        href="{{ url('stisla/dist') }}/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="{{ url('stisla/dist') }}/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery CDN -->
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ url('stisla/dist') }}/assets/css/components.css">
@@ -69,7 +74,8 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ url('stisla/dist') }}/assets/modules/datatables/datatables.min.js"></script>
-    <script src="{{ url('stisla/dist') }}/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ url('stisla/dist') }}/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js">
+    </script>
     <script src="{{ url('stisla/dist') }}/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
     <script src="{{ url('stisla/dist') }}/assets/modules/jquery-ui/jquery-ui.min.js"></script>
     <script src="{{ url('stisla/dist') }}/assets/js/page/modules-datatables.js"></script>
@@ -85,7 +91,7 @@
     <!-- Leaflet Geosearch JS -->
     <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.umd.js"></script>
 
-    <script>
+    {{-- <script>
         const options = {
             coordinates: [-7.620871105192088, 111.52925235315845],
             name: "Dummy Judul",
@@ -153,7 +159,7 @@
         });
 
         leafletMap.addControl(search);
-    </script>
+    </script> --}}
 
 @show
 @yield('js')

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>CRUD Category</title>
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" />
@@ -35,7 +37,7 @@
                                 Tambah</button>
                         </div>
                         <div class="box-body table-responsive">
-                            <table id="tb" class="table table-stiped table-bordered">
+                            <table class="table table-stiped table-bordered">
                                 <thead>
                                     <tr>
                                         <th width="5%">No</th>
@@ -70,48 +72,38 @@
         });
 
         //membuat datatables
-        // var table = $('.table').DataTable({
-        //     processing: true,
-        //     autoWidth: false,
-        //     responsive: true,
-        //     lengthChange: true,
-        //     processing: true,
-        //     serverSide: true,
-        //     dom: 'lfrtip',
-        //     //mengambil data dengan category controller
-        //     ajax: "{{ route('category.index') }}",
-        //     columns: [{
-        //             data: 'DT_RowIndex',
-        //             searchable: false
-        //         },
-        //         {
-        //             data: 'name',
-        //             name: 'name'
-        //         },
-        //         {
-        //             data: 'description',
-        //             name: 'description',
-        //             orderable: false,
-        //             searchable: false
-        //         },
-        //         {
-        //             data: 'action',
-        //             name: 'action',
-        //             orderable: false,
-        //             searchable: false
-        //         },
-        //     ]
-        // });
-        $(document).ready(function() {
-
-            // DataTable
-            $('#tb').DataTable({
+            var table = $('.table').DataTable({
+                processing: true,
+                autoWidth: false,
+                responsive: true,
+                lengthChange: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('category.index') }}"
+                dom: 'lfrtip',
+                //mengambil data dengan category controller
+                ajax: "{{ route('category.index') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        searchable: false
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'description',
+                        name: 'description',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
             });
-
-        });
 
         //close modal
         $('.close-btn').click(function(e) {
